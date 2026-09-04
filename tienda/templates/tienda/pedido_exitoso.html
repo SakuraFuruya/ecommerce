@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido Exitoso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'inicio' %}">La Tienda X</a>
+    <a class="btn btn-outline-light" href="{% url 'ver_carrito' %}">Carrito</a>
+  </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h2>¡Pedido creado con éxito!</h2>
+        <p>Gracias por tu compra, {{ pedido.usuario.username }}.</p>
+    </div>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <h4 class="card-title">Resumen del Pedido</h4>
+            <p><strong>ID del pedido:</strong> {{ pedido.id }}</p>
+            <p><strong>Total:</strong> ${{ pedido.precio_total }}</p>
+            <p><strong>Dirección:</strong> {{ pedido.direccion }}</p>
+        </div>
+    </div>
+
+    <!-- Mostrar productos comprados -->
+    {% if pedido.productos.all %}
+    <div class="mt-4">
+        <h5>Productos comprados:</h5>
+        <div class="row">
+            {% for detalle in pedido.productos.all %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        {% if detalle.producto.imagen %}
+                            <img src="{{ detalle.producto.imagen.url }}" class="card-img-top" alt="{{ detalle.producto.nombre }}">
+                        {% else %}
+                            <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="Sin imagen">
+                        {% endif %}
+                        <div class="card-body">
+                            <h6 class="card-title">{{ detalle.producto.nombre }}</h6>
+                            <p>Cantidad: {{ detalle.cantidad }}</p>
+                            <p>Precio unitario: ${{ detalle.precio_unitario }}</p>
+                            <p class="fw-bold">Subtotal: ${{ detalle.subtotal }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al catálogo</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>© 2026 La Tienda X</p>
+</footer>
+
+</body>
+</html>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,6 @@
 </head>
 <body>
 
-<!-- Navbar sencillo -->
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'inicio' %}">La Tienda X</a>
@@ -22,8 +22,12 @@
         {% for producto in productos %}
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    {% if producto.foto %}
-                        <img src="{{ producto.foto.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                    {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}" style="height: 220px; object-fit: cover;">
+                    {% else %}
+                        <div class="d-flex align-items-center justify-content-center bg-light text-secondary" style="height: 220px;">
+                            Sin imagen
+                        </div>
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ producto.nombre }}</h5>
@@ -39,7 +43,6 @@
     </div>
 </div>
 
-<!-- Footer sencillo -->
 <footer class="bg-dark text-white text-center py-3 mt-5">
     <p>© 2026 La Tienda X</p>
 </footer>

@@ -1,72 +1,78 @@
-# 🛒 Proyecto E‑commerce (Demo)
+# 🛒 Ecommerce Django
 
-Este proyecto es una tienda en línea básica desarrollada con **Django** y **Bootstrap**, que implementa un flujo sencillo de catálogo y carrito de compras.
-
-## 🚀 Funcionalidades implementadas
-- **Catálogo de productos**:
-  - Visualización en tarjetas con nombre, descripción, precio, stock e imagen.
-  - Botón **“Agregar al carrito”** en cada producto.
-- **Carrito de compras**:
-  - Vista dedicada para mostrar los productos agregados.
-  - Botón **“Eliminar”** para quitar productos del carrito.
-  - Mensaje claro cuando el carrito está vacío.
-- **Navegación**:
-  - **Navbar sencillo** con enlace al catálogo y al carrito.
-  - **Footer básico** con información de la tienda.
-- **Sesiones en Django**:
-  - Los productos se guardan en la sesión del usuario, manteniendo el carrito activo mientras navega.
-
-## 📂 Estructura principal
-- `views.py`: contiene las funciones `inicio`, `lista_productos`, `agregar_al_carrito`, `ver_carrito`, `eliminar_del_carrito`.
-- `urls.py`: define las rutas para catálogo y carrito.
-- `templates/tienda/`:
-  - `lista_productos.html`: catálogo con tarjetas de productos.
-  - `carrito.html`: vista del carrito con opción de eliminar productos.
-
-## 🎨 Mejoras visuales
-- Uso de **Bootstrap 5** para un diseño limpio y responsivo.
-- Navbar y footer para darle identidad y estructura a la página.
-- Tarjetas con sombras y estilo uniforme para los productos.
-
-## 📌 Próximos pasos (opcional)
-- Mostrar el **total del carrito**.
-- Manejar **cantidades** de productos.
-- Autenticación de usuarios y persistencia del carrito en base de datos.
-- Flujo de **checkout/pago** y historial de pedidos.
+Proyecto de tienda en línea desarrollado con **Django** para simular un flujo básico de compra en una aplicación web.
 
 ---
 
-✅ Este proyecto demuestra el flujo básico de un e‑commerce: **catálogo → agregar productos → ver carrito → eliminar productos**.  
-Es una base sólida para seguir aprendiendo y expandiendo funcionalidades.
+## 📖 Descripción
+Este proyecto permite a los usuarios:
 
+- Navegar un catálogo de productos
+- Agregar artículos al carrito
+- Eliminar productos del carrito
+- Iniciar sesión
+- Completar una compra
+- Generar un pedido con dirección de entrega
+- Visualizar una confirmación final
 
-## ⚙️ Instalación rápida
+---
 
-1. Clona este repositorio:
-   
-   git clone https://github.com/tuusuario/tu-repo.git
-   cd tu-repo
+## 🚀 Funcionalidades principales
+- Catálogo de productos con imágenes
+- Carrito de compras en sesión
+- Autenticación de usuarios
+- Checkout con validación de dirección
+- Registro de pedidos
+- Interfaz con **Bootstrap**
+- Gestión básica de productos y pedidos
 
-2. Crea y activa un entorno virtual:
-    python -m venv venv
-source venv/bin/activate   # En Linux/Mac
-venv\Scripts\activate      # En Windows
+---
 
-3. Instala las dependencias:
-    pip install -r requirements.txt
+## 🛠️ Tecnologías utilizadas
+- Python  
+- Django  
+- SQLite  
+- Bootstrap 5  
+- HTML  
+- CSS  
 
-4. Aplica las migraciones de Django:
-   python manage.py migrate
+---
 
-5. Crea un superusuario (opcional, para acceder al admin):
-    python manage.py createsuperuser
+## 📂 Estructura del proyecto
+- **ecommerce/** → configuración del proyecto  
+- **tienda/** → lógica principal de la aplicación  
+- **media/** → imágenes subidas de productos  
+- **db.sqlite3** → base de datos local  
+- **manage.py** → archivo principal de ejecución  
 
-6. Inicia el servidor de desarrollo:
-    python manage.py runserver
+---
 
-7. Abre en tu navegador:
-    http://127.0.0.1:8000/
-    
+## ⚙️ Instalación
+1. Clona el repositorio  
+2. Crea un entorno virtual  
+3. Instala las dependencias  
+4. Ejecuta las migraciones  
+5. Inicia el servidor  
+
+```bash
+python manage.py migrate
+python manage.py runserver
+
+📌 Estado del proyecto
+El proyecto se encuentra en una versión funcional y estable para el flujo básico de una tienda en línea.
+
+🔮 Mejoras futuras
+Mejorar la apariencia visual
+
+Agregar más opciones de catálogo
+
+Optimizar la gestión de inventario
+
+Ampliar la autenticación de usuarios
+
+Añadir historial de pedidos
+
+Mejorar la administración de productos
 
 
 
