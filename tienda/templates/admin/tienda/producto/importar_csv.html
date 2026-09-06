@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="module aligned">
+        <div class="form-row">
+            <label for="id_archivo_csv">Archivo CSV:</label>
+            <input id="id_archivo_csv" type="file" name="archivo_csv" accept=".csv,text/csv" required>
+        </div>
+    </fieldset>
+    <p>Columnas requeridas: nombre, descripcion, precio, stock.</p>
+    <div class="submit-row">
+        <input type="submit" value="Importar productos" class="default">
+        <a href="{% url 'admin:tienda_producto_changelist' %}" class="button cancel-link">Cancelar</a>
+    </div>
+</form>
+{% endblock %}
