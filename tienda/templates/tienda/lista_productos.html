@@ -8,12 +8,33 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'inicio' %}">La Tienda X</a>
-    <a class="btn btn-outline-light" href="{% url 'ver_carrito' %}">Carrito</a>
-  </div>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="{% url 'inicio' %}">
+                La Tienda X
+            </a>
+
+            <div class="d-flex justify-content-start gap-2">
+                <a
+                    class="btn btn-outline-light me-2"
+                    href="{% url 'ver_carrito' %}"
+                >
+                    🛒 Carrito
+                </a>
+
+               <a
+                    class="btn btn-outline-info me-2"
+                    href="{% url 'login' %}"
+                >
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
 
 <div class="container mt-5">
     <h1 class="text-center mb-4">Catálogo de Productos</h1>
